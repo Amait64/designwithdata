@@ -12,11 +12,11 @@ PFont f;
 // SETUP
 void setup() {
   size(1800, 900);
-  noLoop();
+  //noLoop();
   f = createFont("Avenir-Medium", 12);
   baseMap = loadShape("WorldMap.svg");
   csv = loadStrings("WorldCoordinates.csv");
-  myData = new String[csv.length][4];
+  myData = new String[csv.length][6];
   for(int i=0; i<csv.length; i++) {
     myData[i] = csv[i].split(",");
   }
@@ -35,8 +35,8 @@ void draw() {
     float graphLong = map(float(myData[i][3]), -180, 180, 0, width);
     float graphLat = map(float(myData[i][2]), 90, -90, 0, height);    
     float markerSize = 20;
-    println("MarketSize:" + markerSize);
-    println(myData[i][0] + "-" + myData[i][2] + "-" + myData[i][3]);
+    //println("MarketSize:" + markerSize);
+    //println(myData[i][0] + "-" + myData[i][2] + "-" + myData[i][3]);
    
     
     if(i<20){
@@ -52,7 +52,6 @@ void draw() {
       //put in the center
       //show routes
       showroute.display();
-      showroute.checkMouse();
     }
   }
 }

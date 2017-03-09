@@ -18,20 +18,19 @@ class ShowRoute {
   }
 
   void display() {
-    
-   if (bhover) {
-      fill(255, 0, 0);
-      ellipse(flong, flat, 20, 20);
-   }
-   else{  fill(255, 0, 0, 50);
-      ellipse(flong, flat, 20, 20);
-   }
+    println("LatitudeLongitud" + flong + "-" + flat);
+    println("distance:" + dist(mouseX, mouseY, flong, flat));
+     if (dist(mouseX, mouseY, flong, flat) < 10) {
+       
+       fill(255, 0, 0);
+       ellipse(flong, flat, 20, 20);
+     }
+     else{
+       fill(255, 0, 0, 50);
+       ellipse(flong, flat, 20, 20);
+     }
   }
 
   void checkMouse() {
-    if (dist(mouseX, mouseY, flong, flat) < 10) {
-      bhover = true;
-   } else bhover = false;
-     display();
   }
 }
