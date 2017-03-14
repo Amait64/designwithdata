@@ -5,7 +5,9 @@ String csv[];
 String myData[][];
 ArrayList<Country> _countries;
 HomePage _homePage;
+PassportPage _passportPage;
 int page = 0;
+PFont myFont;
 
 void setup() {
   size(1800, 900);
@@ -13,11 +15,17 @@ void setup() {
   loadCSV();
   loadData();
   parseCountries();
+  myFont = createFont("Early-GameBoy.ttf", 32);
   _homePage = new HomePage(this);
+  _passportPage = new PassportPage(this);
   _homePage.display();
 }
 
 void draw() {
+  if(page == 1){
+    _passportPage.display();
+  }
+  
   if (_homePage.isActive() == false) {
     _homePage.hide();
     drawMap();

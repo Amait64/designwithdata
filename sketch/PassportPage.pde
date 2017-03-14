@@ -1,32 +1,17 @@
 import controlP5.*;
 
-class HomePage {
+class PassportPage {
   ControlP5 cp5;
+  boolean _isActive = true;
   Button _button;
   Textfield _textfield;
-  PFont font;
-  boolean _isActive = true;
-  
-  HomePage(PApplet thePApplet) {
+  PassportPage(PApplet thePApplet) {
     cp5 = new ControlP5(thePApplet);
-    font = createFont("Early-GameBoy.ttf", 32);
   }
 
   void display() { 
     background(0);
-    _textfield = cp5.addTextfield("input");
-    _textfield.setPosition(width/2, height/2);//TODO: locate the textfield...
-      .setSize(200, 40)//TODO: set size
-      .setFocus(true)
-      .setColor(color(255, 0, 0))
-      .setFont(font)
-      .setLabel("Text label"); //TODO: change
-
-    _button = cp5.addButton("colorA");
-    _button.setValue(0)
-      .setPosition(100, 100)
-      .setFont(font)
-      .setSize(200, 19);
+    //create passport page
   }
   
   void hide() {
@@ -45,7 +30,6 @@ class HomePage {
   String getTextFieldValue() {
     return cp5.get(Textfield.class, "input").getText();
   }
-  
   boolean isActive() {
     return _isActive;
   }
