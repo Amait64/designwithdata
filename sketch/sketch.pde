@@ -10,7 +10,7 @@ int page = 0;
 PFont myFont;
 
 void setup() {
-  size(1800, 900);
+  size(1280, 720);
   loadMap();
   loadCSV();
   loadData();
@@ -22,6 +22,9 @@ void setup() {
 }
 
 void draw() {
+   
+        
+      
   if(page == 1){
     _passportPage.display();
   }
