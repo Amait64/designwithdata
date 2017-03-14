@@ -10,12 +10,9 @@ class HomePage {
   HomePage(PApplet thePApplet) {
     cp5 = new ControlP5(thePApplet);
     font = createFont("Early-GameBoy.ttf", 32);
-  }
-
-  void display() { 
     background(0);
     _textfield = cp5.addTextfield("input");
-    _textfield.setPosition(width/2, height/2);//TODO: locate the textfield...
+    _textfield.setPosition(width/2, height/2)//TODO: locate the textfield...
       .setSize(200, 40)//TODO: set size
       .setFocus(true)
       .setColor(color(255, 0, 0))
@@ -28,13 +25,18 @@ class HomePage {
       .setFont(font)
       .setSize(200, 19);
   }
+
+  void display() { 
+    _button.setVisible(true);
+    _textfield.setVisible(true);
+  }
   
   void hide() {
     _button.setVisible(false);
     _textfield.setVisible(false);
   }
   
-  void colorA(int theValue) {
+  void onClick(int theValue) {
     if(getTextFieldValue().isEmpty())//TODO: Add validation to alert user about the required field..
       return;
     println("a button event from colorA: "+theValue);

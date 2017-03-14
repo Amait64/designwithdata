@@ -6,7 +6,7 @@ class Hover {
   String _countryName;
   Country _country;
   int _markerSize = 20; //TODO: hardcoded
-  
+
   Hover(Country country) {
     _country = country;
     _latitude = country.getLatitude();
@@ -27,7 +27,7 @@ class Hover {
     noFill();
     stroke(0);
   }
-  
+
   void onClick() {
   }
 }

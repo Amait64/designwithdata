@@ -7,7 +7,6 @@ ArrayList<Country> _countries;
 HomePage _homePage;
 PassportPage _passportPage;
 int page = 0;
-PFont myFont;
 
 void setup() {
   size(1800, 900);
@@ -15,22 +14,31 @@ void setup() {
   loadCSV();
   loadData();
   parseCountries();
-  myFont = createFont("Early-GameBoy.ttf", 32);
   _homePage = new HomePage(this);
   _passportPage = new PassportPage(this);
-  _homePage.display();
+  noLoop();
 }
 
 void draw() {
-  if(page == 1){
-    _passportPage.display();
+  //if (_passportPage.isActive() == false) {
+  //  _passportPage.display();
+  //}
+
+  //if (_homePage.isActive()) {
+  //  _homePage.display();
+  //}
+
+  if (_homePage.isActive()) {
+    _homePage.display();
+    loop();
+    //_homePage.hide();
+    //_passportPage.display();
+    //drawMap();
+    //drawButtons();
   }
-  
-  if (_homePage.isActive() == false) {
-    _homePage.hide();
-    drawMap();
-    drawButtons();
-  }
+  //if (_passportPage.isActive()) {
+  //  _passportPage.display();
+  //}
 }
 
 void loadMap() {
@@ -71,7 +79,7 @@ void drawButtons() {
   }
 }
 void colorA(int theValue) {
-  _homePage.colorA(theValue);
+  _homePage.onClick(theValue);
 }
 
 void drawMap() {
@@ -81,3 +89,6 @@ void drawMap() {
 void renderPage0() {
   _homePage.display();
 }
+
+//TODO:
+//add validation to the user that needs to specify name
