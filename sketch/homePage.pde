@@ -32,9 +32,13 @@ class HomePage {
     _button = cp5.addButton("ENTER");
     _button.setValue(0)
       .setPosition(width/2-100, height*3/5)
-      .setFont(font)
-   
-      .setColorBackground(color(255)) 
+      .setFont(font)  
+      //int cfg, int cbg, int cactive, int ccl, int cvl
+      //.setColor(new CColor(color(255), color(255), color(255), color(0), color(0)))
+      .setColorForeground(color(255))
+      .setColorActive(color(255))
+      .setColorLabel(color(0))
+      .setColorBackground(color(255))     
       .setSize(200, 40);
   }
   
