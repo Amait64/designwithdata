@@ -13,15 +13,9 @@ class HomePage {
     cp5 = new ControlP5(thePApplet);
     font = createFont("Early-GameBoy.ttf", 32);
     background(0);
-<<<<<<< HEAD
-    _textfield = cp5.addTextfield("input");
-    _textfield.setPosition(width/2, height/2)//TODO: locate the textfield...
-      .setSize(200, 40)//TODO: set size
-=======
     _textfield = cp5.addTextfield("");
     _textfield.setPosition(width/2, height*2/5)
       .setSize(200, 40) 
->>>>>>> 604f74a104bcc84caed4a366efff26e4dbd15e44
       .setFocus(true)
       .setColor(color(0))
       .setColorActive(0) 

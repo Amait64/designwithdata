@@ -20,39 +20,13 @@ void setup() {
 }
 
 void draw() {
-<<<<<<< HEAD
-  //if (_passportPage.isActive() == false) {
-  //  _passportPage.display();
-  //}
-
-  //if (_homePage.isActive()) {
-  //  _homePage.display();
-  //}
+  if (_passportPage.isActive()) {
+    _passportPage.display();
+  }
 
   if (_homePage.isActive()) {
     _homePage.display();
-    loop();
-    //_homePage.hide();
-    //_passportPage.display();
-    //drawMap();
-    //drawButtons();
-=======
-   
-        
-      
-  if(page == 1){
-    _passportPage.display();
   }
-  
-  if (_homePage.isActive() == false) {
-    _homePage.hide();
-    drawMap();
-    drawButtons();
->>>>>>> 604f74a104bcc84caed4a366efff26e4dbd15e44
-  }
-  //if (_passportPage.isActive()) {
-  //  _passportPage.display();
-  //}
 }
 
 void loadMap() {
