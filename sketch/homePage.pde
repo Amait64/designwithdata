@@ -1,29 +1,48 @@
 import controlP5.*;
 
+
 class HomePage {
   ControlP5 cp5;
   Button _button;
   Textfield _textfield;
   PFont font;
   boolean _isActive = true;
+
   
   HomePage(PApplet thePApplet) {
     cp5 = new ControlP5(thePApplet);
     font = createFont("Early-GameBoy.ttf", 32);
     background(0);
+<<<<<<< HEAD
     _textfield = cp5.addTextfield("input");
     _textfield.setPosition(width/2, height/2)//TODO: locate the textfield...
       .setSize(200, 40)//TODO: set size
+=======
+    _textfield = cp5.addTextfield("");
+    _textfield.setPosition(width/2, height*2/5)
+      .setSize(200, 40) 
+>>>>>>> 604f74a104bcc84caed4a366efff26e4dbd15e44
       .setFocus(true)
-      .setColor(color(255, 0, 0))
-      .setFont(font)
-      .setLabel("Text label"); //TODO: change
+      .setColor(color(0))
+      .setColorActive(0) 
+      .setColorForeground(0) 
+      .setColorBackground(color(255))  
+      .setFont(font);
+      textFont(font);
+      text("NAME:",width/2-200, height*2/5+30);
+     
 
-    _button = cp5.addButton("colorA");
+    _button = cp5.addButton("ENTER");
     _button.setValue(0)
-      .setPosition(100, 100)
-      .setFont(font)
-      .setSize(200, 19);
+      .setPosition(width/2-100, height*3/5)
+      .setFont(font)  
+      //int cfg, int cbg, int cactive, int ccl, int cvl
+      //.setColor(new CColor(color(255), color(255), color(255), color(0), color(0)))
+      .setColorForeground(color(255))
+      .setColorActive(color(255))
+      .setColorLabel(color(0))
+      .setColorBackground(color(255))     
+      .setSize(200, 40);
   }
 
   void display() { 

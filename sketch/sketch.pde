@@ -9,7 +9,7 @@ PassportPage _passportPage;
 int page = 0;
 
 void setup() {
-  size(1800, 900);
+  size(1280, 720);
   loadMap();
   loadCSV();
   loadData();
@@ -20,6 +20,7 @@ void setup() {
 }
 
 void draw() {
+<<<<<<< HEAD
   //if (_passportPage.isActive() == false) {
   //  _passportPage.display();
   //}
@@ -35,6 +36,19 @@ void draw() {
     //_passportPage.display();
     //drawMap();
     //drawButtons();
+=======
+   
+        
+      
+  if(page == 1){
+    _passportPage.display();
+  }
+  
+  if (_homePage.isActive() == false) {
+    _homePage.hide();
+    drawMap();
+    drawButtons();
+>>>>>>> 604f74a104bcc84caed4a366efff26e4dbd15e44
   }
   //if (_passportPage.isActive()) {
   //  _passportPage.display();
