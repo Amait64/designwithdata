@@ -6,24 +6,26 @@ String myData[][];
 ArrayList<Country> _countries;
 HomePage _homePage;
 PassportPage _passportPage;
-int page = 0;
-
+  
 void setup() {
+  background(0);  
   size(1280, 720);
   loadMap();
   loadCSV();
   loadData();
-  parseCountries();
-  _homePage = new HomePage(this);
+  parseCountries();   
   _passportPage = new PassportPage(this);
-  noLoop();
+  
+  _homePage = new HomePage(this, _passportPage);
 }
 
 void draw() {
+  println("passport is active:" + _passportPage.isActive());
+  println("homePage is active:" + _homePage.isActive());
   if (_passportPage.isActive()) {
     _passportPage.display();
+    _homePage.hide();    
   }
-
   if (_homePage.isActive()) {
     _homePage.display();
   }
@@ -66,9 +68,9 @@ void drawButtons() {
     }
   }
 }
-void colorA(int theValue) {
-  _homePage.onClick(theValue);
-}
+//void enter(int theValue) {
+//  _homePage.onClick(theValue);
+//}
 
 void drawMap() {
   shape(baseMap, 0, 0, width, height);

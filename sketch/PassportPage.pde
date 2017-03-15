@@ -1,28 +1,56 @@
-import controlP5.*;
-
-class PassportPage {
-  ControlP5 cp5;
-  boolean _isActive = false;
-  PFont font;
+class PassportPage extends BasePage { 
+  Button _button2;
   Textlabel _label;
-
+  MapPage _mapPage;
+  boolean isActive;
   PassportPage(PApplet thePApplet) {
-    cp5 = new ControlP5(thePApplet);
-    font = createFont("Early-GameBoy.ttf", 32);
-  }
+    super(thePApplet);
+    isActive = _isActive;
+    _mapPage = new MapPage(thePApplet);
 
-  void display() { 
-    background(0);
-    //create passport page
-    _label = cp5.addTextlabel("label")
-      .setText("A single ControlP5 textlabel, in yellow.")
+    _label = cp5.addTextlabel("PassportPageTitle");
+    _label.setText("Passport Page")
       .setPosition(100, 50)
       .setColorValue(0xffffff00)
-      .setFont(font);
+      .setFont(font)
+      .setVisible(_isActive);
+      
+    _button2 = cp5.addButton("Start");
+    _button2.setValue(0)
+      .setPosition(width/2-200, height*3/5)
+      .setFont(font)  
+      .setColorForeground(color(255))
+      .setColorActive(color(255))
+      .setColorLabel(color(0))
+      .setColorBackground(color(255))           
+      .setVisible(_isActive)
+      .setSize(200, 40);
+
+    _button2.onClick(new CallbackListener() {
+      public void controlEvent(CallbackEvent theEvent) {
+        println("button click:" + theEvent.getAction());     
+        _isActive = false;    
+        _mapPage.display();
+        hide();
+      }
+    }
+    );
+  }
+
+  void display() {
+        background(0);
+    _label.setVisible(true);
+    _button2.setVisible(true);
   }
 
   void hide() {
-    _label.setVisible(false);
+    _label.setVisible(false);    
+    _button2.hide();
+  }
+
+  void setActive() {
+    println("set Active");
+    _isActive = true;
   }
 
   boolean isActive() {
