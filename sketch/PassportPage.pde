@@ -3,11 +3,13 @@ class PassportPage extends BasePage {
   Textlabel _label;
   MapPage _mapPage;
   boolean isActive;
-  PassportPage(PApplet thePApplet) {
+  
+  PassportPage(PApplet thePApplet, MapPage mapPage) {
     super(thePApplet);
     isActive = _isActive;
-    _mapPage = new MapPage(thePApplet);
+    _mapPage = mapPage;
 
+    //Declare controls
     _label = cp5.addTextlabel("PassportPageTitle");
     _label.setText("Passport Page")
       .setPosition(100, 50)
@@ -26,6 +28,7 @@ class PassportPage extends BasePage {
       .setVisible(_isActive)
       .setSize(200, 40);
 
+    //Add event to control
     _button2.onClick(new CallbackListener() {
       public void controlEvent(CallbackEvent theEvent) {
         println("button click:" + theEvent.getAction());     
@@ -38,7 +41,7 @@ class PassportPage extends BasePage {
   }
 
   void display() {
-        background(0);
+     background(0);
     _label.setVisible(true);
     _button2.setVisible(true);
   }
@@ -49,7 +52,6 @@ class PassportPage extends BasePage {
   }
 
   void setActive() {
-    println("set Active");
     _isActive = true;
   }
 

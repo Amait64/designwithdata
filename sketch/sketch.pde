@@ -6,55 +6,25 @@ String myData[][];
 ArrayList<Country> _countries;
 HomePage _homePage;
 PassportPage _passportPage;
-  
+MapPage _mapPage;
+
 void setup() {
   background(0);  
-  size(1280, 720);
-  loadMap();
-  loadCSV();
-  loadData();
-  parseCountries();   
-  _passportPage = new PassportPage(this);
-  
+  size(1280, 720); 
+  _mapPage = new MapPage(this);
+  _passportPage = new PassportPage(this, _mapPage);  
   _homePage = new HomePage(this, _passportPage);
+  
 }
 
 void draw() {
-  println("passport is active:" + _passportPage.isActive());
-  println("homePage is active:" + _homePage.isActive());
   if (_passportPage.isActive()) {
     _passportPage.display();
     _homePage.hide();    
   }
+  
   if (_homePage.isActive()) {
     _homePage.display();
-  }
-}
-
-void loadMap() {
-  baseMap = loadShape("WorldMap.svg");
-}
-
-void loadCSV() {
-  csv = loadStrings("WorldCoordinates.csv");
-}
-
-void loadData() {
-  myData = new String[csv.length][6];//TODO:hardcoded
-  for (int i=0; i<csv.length; i++) {
-    myData[i] = csv[i].split(",");
-  }
-}
-
-void parseCountries() {
-  _countries = new ArrayList<Country>();
-  for (int i = 1; i < myData.length; i++) {
-    float longitude = map(float(myData[i][3]), -180, 180, 0, width);
-    float latitude = map(float(myData[i][2]), 90, -90, 0, height);
-    String countryName = myData[i][0];
-    //println("Country name:" + countryName + " Longitude:" + longitude + " Latitude:" + latitude);
-    Country newCountry = new Country(latitude, longitude, 0, countryName); //TODO: hardcoded gdp
-    _countries.add(newCountry);
   }
 }
 
@@ -68,17 +38,3 @@ void drawButtons() {
     }
   }
 }
-//void enter(int theValue) {
-//  _homePage.onClick(theValue);
-//}
-
-void drawMap() {
-  shape(baseMap, 0, 0, width, height);
-}
-
-void renderPage0() {
-  _homePage.display();
-}
-
-//TODO:
-//add validation to the user that needs to specify name
