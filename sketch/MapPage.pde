@@ -10,6 +10,9 @@ class MapPage extends BasePage {
       .setColorValue(0xffffff00)
       .setFont(font)      
       .setVisible(_isActive);
+      
+      
+      
   }
 
   void display() { 
