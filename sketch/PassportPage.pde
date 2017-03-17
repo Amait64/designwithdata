@@ -37,16 +37,17 @@ class PassportPage extends BasePage {
     textFont(font);
     fill(0);
     textSize(20);
-    text("Q000034", 770, 180);
-    text("KOR", 650, 180);
+    text("Q000034", 2.5*width/5,18*height/100);
+    text("KOR", 1.7*width/5, 18*height/100);
  
     
   
     String playerName = _player.getName();  
     println("Player name:" + playerName);
+     println(width,height);
     textSize(32);
-    text(playerName, 497, 260);
-    text("300", 497, 335);
+    text(playerName,4*width/10, 3.2*height/10);
+    text("300",4*width/10, 4.5*height/10);
     if (cam.available()) {
       cam.read();
     }
