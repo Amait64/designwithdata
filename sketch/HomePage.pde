@@ -55,6 +55,7 @@ class HomePage extends BasePage {
         hide();            
         _isActive = false;        
         String name = getTextFieldValue();
+        println("The name captured:" + name);
         _player.setName(name);
         _passportPage.setActive();
       }

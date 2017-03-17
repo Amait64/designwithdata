@@ -7,11 +7,14 @@ class PassportPage extends BasePage {
   MapPage _mapPage;
   boolean isActive;
   Capture cam;  
+  Player _player;
+  StoryPage _storyPage;
   
-  PassportPage(PApplet thePApplet, MapPage mapPage) {
+  PassportPage(PApplet thePApplet, StoryPage storyPage) {
     super(thePApplet);
     isActive = _isActive;
-    _mapPage = mapPage;      
+    _storyPage = storyPage;
+    _player = Player.getInstance();    
     String[] cameras = Capture.list();
     if (cameras.length == 0) {
       println("There are no cameras available for capture.");
@@ -22,7 +25,7 @@ class PassportPage extends BasePage {
         println(cameras[i]);
       }
       
-      cam = new Capture(thePApplet, 640, 480, cameras[0], 30);
+      cam = new Capture(thePApplet, 320, 240, cameras[0], 30);
       cam.start();
     }   
     photo = loadImage("passportphoto.jpg");
@@ -38,7 +41,9 @@ class PassportPage extends BasePage {
     text("KOR", 650, 180);
     textSize(32);
     text("PM", 497, 260);
-
+  
+    String playerName = _player.getName();  
+    //println("Player name:" + playerName);
     text("300", 497, 335);
     if (cam.available()) {
       cam.read();

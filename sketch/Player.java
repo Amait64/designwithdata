@@ -59,7 +59,10 @@ public class Player {
   public void addDestination(Country destination) {
     _destinations.add(destination);
   }
-
+  public String getName()
+  {
+    return _name;
+  }
   public void updateBudget(double budget)//TODO: check
   {
     _budget = budget;
