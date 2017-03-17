@@ -25,7 +25,7 @@ class PassportPage extends BasePage {
         println(cameras[i]);
       }
       
-      cam = new Capture(thePApplet, 320, 240, cameras[0], 30);
+      cam = new Capture(thePApplet,90,160,cameras[0], 30);
       cam.start();
     }   
     photo = loadImage("passportphoto.jpg");
@@ -39,16 +39,18 @@ class PassportPage extends BasePage {
     textSize(20);
     text("Q000034", 770, 180);
     text("KOR", 650, 180);
-    textSize(32);
-    text("PM", 497, 260);
+ 
+    
   
     String playerName = _player.getName();  
-    //println("Player name:" + playerName);
+    println("Player name:" + playerName);
+    textSize(32);
+    text(playerName, 497, 260);
     text("300", 497, 335);
     if (cam.available()) {
       cam.read();
     }
-    image(cam, 200, 180);
+    image(cam, 60, 180);
   }
 
   void hide() {
