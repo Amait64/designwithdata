@@ -20,8 +20,6 @@ class HomePage extends BasePage {
       .setColor(color(129))
       .setFont(font) 
       .setText(" Enter your name")
-
-
       .setColorForeground(0) 
       .setColorBackground(color(255))  
       .setFont(font)      
@@ -82,8 +80,3 @@ class HomePage extends BasePage {
     return _isActive;
   }
 }
-
-
-//add markers per country
-//draw routes
-//include backend code

@@ -10,17 +10,17 @@ public class Player {
 
   private static Player player = null;
   
-  public static Player getInstance(ArrayList<Country> countries)
+  public static Player Initialize(ArrayList<Country> countries)
   {
    if (player == null)
       player = new Player(countries);
     return player;
   }
   public static Player getInstance()
-  {
-    if (player == null)
-      player = new Player(null);//check
-    return player; //<>//
+  {   
+    //if (player == null)
+      //throw new Exception();
+    return player;
   }
 
   protected Player(ArrayList<Country> countries)
@@ -35,7 +35,7 @@ public class Player {
   {
     _name = name;
   }
-   //<>//
+  
   private void setOriginCountry() {
     Random rand = new Random();
     int countryCode = rand.nextInt(14);   
@@ -60,7 +60,7 @@ public class Player {
     _destinations.add(destination);
   }
 
-  void updateBudget(double budget)//TODO: check
+  public void updateBudget(double budget)//TODO: check
   {
     _budget = budget;
   } 

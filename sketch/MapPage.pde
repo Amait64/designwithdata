@@ -1,23 +1,25 @@
 class MapPage extends BasePage {
   PShape baseMap;
   PImage backgroundImage;
-  
-  MapPage(PApplet thePApplet) {
+  ArrayList<Country> _countries;
+
+  MapPage(PApplet thePApplet, ArrayList<Country> countries) {
     super(thePApplet);          
     backgroundImage = loadImage("WorldMap.jpg");
+    _countries = countries;
   }
 
- 
+
   void loadMap() {
     backgroundImage = loadImage("moonwalk.jpg");
     //baseMap = loadShape("WorldMap.svg");
   }
 
   void display() { 
-   
+
     background(backgroundImage);
     //loadMap();
-    //drawMap();    
+    //drawMap();
   }
 
   void hide() {
@@ -34,5 +36,13 @@ class MapPage extends BasePage {
 
   boolean isActive() {
     return _isActive;
+  }
+
+  void drawButtons() {
+    for (int i = 0; i < _countries.size(); i++) {
+      Country currentCountry = _countries.get(i);
+      Hover newHoverItem = new Hover(currentCountry); 
+      newHoverItem.display();
+    }
   }
 }
