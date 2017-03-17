@@ -26,11 +26,11 @@ class MapPage extends BasePage {
   }
 
   void setActive() {
-    _isActive = true;
+    isActive = true;
   }
 
   boolean isActive() {
-    return _isActive;
+    return isActive;
   }
 
   void drawHovers() {

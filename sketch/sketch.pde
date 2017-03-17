@@ -7,7 +7,7 @@ StoryPage _storyPage;
 
 void setup() {
   fullScreen();
-  background(0); //<>//
+  background(0); //<>// //<>//
   String path = sketchPath("data\\dataset.csv");   //<>//
   Handler.Initialize(path);
   Player.Initialize(Handler.allCountries);
@@ -18,6 +18,7 @@ void setup() {
 }
 
 void draw() {
+  background(0);
   if (_passportPage.isActive()) {
     _passportPage.display();
     _homePage.hide();
@@ -25,10 +26,15 @@ void draw() {
 
   if (_mapPage.isActive()) {
     _mapPage.display();
-    _passportPage.hide();
+    _storyPage.hide();
   }
 
   if (_homePage.isActive()) {
     _homePage.display();
+  }
+  
+  if (_storyPage.isActive()) {
+    _storyPage.display();
+    _passportPage.hide();
   }
 }

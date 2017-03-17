@@ -2,14 +2,14 @@ class HomePage extends BasePage {
   Button _button;
   Textfield _textfield;
   PassportPage _passportPage;
-  Player _player;
+  Player player;
 
   HomePage(PApplet thePApplet, PassportPage passportPage) {
     super(thePApplet);
-    _isActive = true;
+    isActive = true;
 
     _passportPage = passportPage;                      
-    _player = Player.getInstance();
+    player = Player.getInstance();
 
     _textfield = cp5.addTextfield("");
     _textfield.setPosition(width/2-100, height*1.8/5)
@@ -23,11 +23,8 @@ class HomePage extends BasePage {
       .setColorForeground(0) 
       .setColorBackground(color(255))  
       .setFont(font)      
-      .setVisible(_isActive);
-
-    textFont(font);
-    text("NAME:", width/2-300, height*1.8/5+40);
-
+      .setVisible(isActive);
+   
     _textfield.onClick(new CallbackListener() {
       public void controlEvent(CallbackEvent theEvent) {
         _textfield.clear();       
@@ -44,19 +41,18 @@ class HomePage extends BasePage {
       .setColorLabel(color(0))
       .setColorBackground(color(255))     
       .setSize(200, 60)      
-      .setVisible(_isActive);
+      .setVisible(isActive);
 
 
 
     _button.onClick(new CallbackListener() {
       public void controlEvent(CallbackEvent theEvent) {       
-        if (getTextFieldValue().isEmpty())//TODO: Add validation to alert user about the required field..
+        if (getTextFieldValue().isEmpty())
           return;
         hide();            
-        _isActive = false;        
+        isActive = false;        
         String name = getTextFieldValue();
-        println("The name captured:" + name);
-        _player.setName(name);
+        player.setName(name);
         _passportPage.setActive();
       }
     }
@@ -64,6 +60,8 @@ class HomePage extends BasePage {
   }
 
   void display() { 
+     textFont(font);
+     text("NAME:", width/2-300, height*1.8/5+40);
     _button.setVisible(true);
     _textfield.setVisible(true);
   }
@@ -78,6 +76,6 @@ class HomePage extends BasePage {
   }
 
   boolean isActive() {
-    return _isActive;
+    return isActive;
   }
 }
