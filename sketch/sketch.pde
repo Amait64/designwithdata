@@ -7,8 +7,8 @@ StoryPage _storyPage;
 
 void setup() {
   fullScreen();
-  background(0); //<>// //<>//
-  String path = sketchPath("data\\dataset.csv");   //<>//
+  background(0);
+  String path = sketchPath("data\\dataset.csv");
   Handler.Initialize(path);
   Player.Initialize(Handler.allCountries);
   _mapPage = new MapPage(this, Handler.allCountries);
@@ -18,7 +18,8 @@ void setup() {
 }
 
 void draw() {
-  background(0);
+  background(0);  
+  println("Passport is active:" + _passportPage.isActive());
   if (_passportPage.isActive()) {
     _passportPage.display();
     _homePage.hide();
