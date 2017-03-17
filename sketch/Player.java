@@ -1,5 +1,6 @@
 import java.util.*;
 import java.lang.*;
+import java.io.IOException;
 
 public class Player {
   double _budget;
@@ -10,16 +11,13 @@ public class Player {
 
   private static Player player = null;
   
-  public static Player Initialize(ArrayList<Country> countries)
+  public static void Initialize(ArrayList<Country> countries)
   {
-   if (player == null)
-      player = new Player(countries);
-    return player;
+     player = new Player(countries);
   }
+  
   public static Player getInstance()
-  {   
-    //if (player == null)
-      //throw new Exception();
+  {    
     return player;
   }
 
@@ -51,6 +49,8 @@ public class Player {
     int high = 2;
     Random random = new Random();
     int fate = random.nextInt(high + 1 -low) - low;
+    if(_origin == null)
+      return;
     double tmpBudget = _origin.getGdp();
     _budget = tmpBudget * 0.7 + 0.3 *fate;
     _budget = Math.round(_budget * 100.0) / 100.0;

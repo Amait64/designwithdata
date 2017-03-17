@@ -11,18 +11,18 @@ class MapPage extends BasePage {
 
 
   void loadMap() {
-    backgroundImage = loadImage("moonwalk.jpg");
-    //baseMap = loadShape("WorldMap.svg");
+    //backgroundImage = loadImage("moonwalk.jpg");
   }
 
   void display() { 
-
-    background(backgroundImage);
-   drawHovers();
+    background(255);
+    //background(backgroundImage);
+    baseMap = loadShape("WorldMap.svg");
+    shape(baseMap, 0, 0, width, height);
+    drawHovers();
   }
 
   void hide() {
-    
   }
 
   void setActive() {

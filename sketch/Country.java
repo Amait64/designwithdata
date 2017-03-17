@@ -11,7 +11,7 @@ public class Country {
   ArrayList<Country> connectedWith = new ArrayList<Country>();
   ArrayList<Country> mediumRisk = new ArrayList<Country>();
   ArrayList<Country> highRisk = new ArrayList<Country>();
-
+  
   Country(float latitude, float longitude, double gdp, String name, int code, double dataCosting)
   {
     _latitude = latitude;
@@ -53,7 +53,7 @@ public class Country {
 
     for (int i=0; i<indexes.length; i++) {
       int countryIndex = Integer.parseInt(indexes[i]);
-      //connectedWith.add(Handler.allCountries.get(countryIndex));
+      connectedWith.add(Handler.allCountries.get(countryIndex));
     }
   }
 
@@ -64,7 +64,7 @@ public class Country {
     for (int i=0; i<indexes.length; i++) {
       int countryIndex = Integer.parseInt(indexes[i]);
       if (countryIndex != -1) {
-        //mediumRisk.add(Handler.allCountries.get(countryIndex));
+        mediumRisk.add(Handler.allCountries.get(countryIndex));
       }
     }
   }
@@ -76,7 +76,7 @@ public class Country {
     for (int i=0; i<indexes.length; i++) {
       int countryIndex = Integer.parseInt(indexes[i]);
       if (countryIndex != -1) {
-        //highRisk.add(Handler.allCountries.get(countryIndex));
+        highRisk.add(Handler.allCountries.get(countryIndex));
       }
     }
   }

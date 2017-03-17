@@ -9,9 +9,9 @@ class Hover {
 
   Hover(Country country) {
     _country = country;
-    _latitude = country.getLatitude();
-    _longitude = country.getLongitude();
-    _countryName = country.getName();
+    _latitude = map(country.getLatitude(), 90, -90, 0, height);
+    _longitude = map(country.getLongitude(), -180, 180, 0, width);
+    _countryName = country.getName();          
   }
 
   void display() {
@@ -23,9 +23,9 @@ class Hover {
     noStroke();
     ellipse(_longitude, _latitude, _markerSize, _markerSize);
     fill(0);
-    text(_countryName, _longitude + _markerSize + 5, _latitude + 4);
-    noFill();
-    stroke(0);
+    //text(_countryName, _longitude + _markerSize + 5, _latitude + 4);
+    //noFill();
+    //stroke(0);
   }
 
   void onClick() {

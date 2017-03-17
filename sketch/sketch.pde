@@ -3,16 +3,14 @@ import controlP5.*;
 HomePage _homePage;
 PassportPage _passportPage;
 MapPage _mapPage;
-Player _player;
-
+  
 void setup() {
-  background(0);  
-  size(1280, 800);
-  
-  ArrayList<Country> countries = new Handler().getCountries();
-  _player = Player.Initialize(countries);  
-  
-  _mapPage = new MapPage(this, countries);
+  fullScreen();
+  background(0);
+  String path = sketchPath("data\\dataset.csv");   //<>//
+  Handler.Initialize(path);
+  Player.Initialize(Handler.allCountries);
+  _mapPage = new MapPage(this, Handler.allCountries);
   _passportPage = new PassportPage(this, _mapPage);  
   _homePage = new HomePage(this, _passportPage);
 }
