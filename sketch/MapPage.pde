@@ -22,16 +22,12 @@ class MapPage extends BasePage {
   }
 
   void hide() {
-    //_label.setVisible(false);
+    
   }
 
   void setActive() {
     _isActive = true;
   }
-
-  //void drawMap() {
-  //  shape(baseMap, 0, 0, width, height);
-  //}
 
   boolean isActive() {
     return _isActive;
