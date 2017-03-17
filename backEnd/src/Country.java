@@ -25,20 +25,22 @@ public class Country {
         this.dataCosting = Double.parseDouble(countryInfo[5]);
     }
 
-    public void setConnectedWith(String [] countryInfo){
+   
+
+    public void printConnections(){
+        for (int i=0; i<connectedWith.size(); i++){
+//            System.out.println(connectedWith.get(i).name);
+            System.out.println(connectedWith.get(i).code);
+        }
+    }
+
+     public void setConnectedWith(String [] countryInfo){
         String tmpString = countryInfo[6];
         String [] indexes = tmpString.split(",");
 
         for (int i=0; i<indexes.length; i++){
             int countryIndex = Integer.parseInt(indexes[i]);
             connectedWith.add(Handler.allCountries.get(countryIndex));
-        }
-    }
-
-    public void printConnections(){
-        for (int i=0; i<connectedWith.size(); i++){
-//            System.out.println(connectedWith.get(i).name);
-            System.out.println(connectedWith.get(i).code);
         }
     }
 
@@ -61,18 +63,6 @@ public class Country {
             for (int i = 0; i < mediumRisk.size(); i++) {
                 System.out.println(mediumRisk.get(i).name);
 //                System.out.println(mediumRisk.get(i).code);
-            }
-        }
-    }
-
-    public void setHighRisk(String [] countryInfo){
-        String tmpString = countryInfo[8];
-        String [] indexes = tmpString.split(",");
-
-        for (int i=0; i<indexes.length; i++){
-            int countryIndex = Integer.parseInt(indexes[i]);
-            if (countryIndex != -1) {
-                highRisk.add(Handler.allCountries.get(countryIndex));
             }
         }
     }

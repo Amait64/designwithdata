@@ -18,8 +18,7 @@ class MapPage extends BasePage {
   void display() { 
 
     background(backgroundImage);
-    //loadMap();
-    //drawMap();
+   drawHovers();
   }
 
   void hide() {
@@ -38,7 +37,7 @@ class MapPage extends BasePage {
     return _isActive;
   }
 
-  void drawButtons() {
+  void drawHovers() {
     for (int i = 0; i < _countries.size(); i++) {
       Country currentCountry = _countries.get(i);
       Hover newHoverItem = new Hover(currentCountry); 
