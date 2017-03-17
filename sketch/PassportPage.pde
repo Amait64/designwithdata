@@ -31,10 +31,9 @@ class PassportPage extends BasePage {
     //Add event to control
     _button2.onClick(new CallbackListener() {
       public void controlEvent(CallbackEvent theEvent) {
-        println("button click:" + theEvent.getAction());     
         _isActive = false;    
-        _mapPage.display();
         hide();
+        _mapPage.display();        
       }
     }
     );
@@ -47,6 +46,7 @@ class PassportPage extends BasePage {
   }
 
   void hide() {
+     background(123);
     _label.setVisible(false);    
     _button2.hide();
   }
