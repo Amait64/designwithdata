@@ -1,4 +1,6 @@
-class Country {
+import java.util.*;
+
+public class Country {
   float _latitude;
   float _longitude;
   double _gdp;
@@ -40,10 +42,11 @@ class Country {
     return _code;
   }
   
-  double getGdp()
+  public double getGdp()
   {
     return _gdp;
   }
+  
   void setConnectedWith(String [] countryInfo) {
     String tmpString = countryInfo[6];
     String [] indexes = tmpString.split(",");

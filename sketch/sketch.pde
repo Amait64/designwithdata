@@ -16,9 +16,7 @@ void setup() {
   loadCSV();
   loadData();
   _countries = getCountries(); 
-  _player = Player.getInstance();
-  _player.setCountries(_countries);
-  
+  _player = Player.getInstance(_countries);
   _mapPage = new MapPage(this);
   _passportPage = new PassportPage(this, _mapPage);  
   _homePage = new HomePage(this, _passportPage);
@@ -35,7 +33,7 @@ void loadData() {
   }
 }
 
-void getCountries() {
+ArrayList<Country> getCountries() {
   ArrayList<Country> countries = new ArrayList<Country>();
   
   for (int i = 1; i < myData.length; i++) {

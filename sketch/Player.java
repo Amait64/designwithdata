@@ -1,4 +1,5 @@
-import java.util.Random;
+import java.util.*;
+import java.lang.*;
 
 public class Player {
   double _budget;
@@ -7,34 +8,41 @@ public class Player {
   ArrayList<Country> _destinations;
   ArrayList<Country> _countries;
 
-  static Player player = null;
-
+  private static Player player = null;
+  
+  public static Player getInstance(ArrayList<Country> countries)
+  {
+   if (player == null)
+      player = new Player(countries);
+    return player;
+  }
   public static Player getInstance()
   {
     if (player == null)
-      player = new Player();
+      //throw new Exception("Initialize before");
+      player = new Player(null); //<>//
     return player;
   }
 
-  protected Player()
+  protected Player(ArrayList<Country> countries)
   {
-    _countries = new ArrayList<Country>();
+    _countries = countries;
     _destinations = new ArrayList<Country>();
     setOriginCountry();
     setBudget();
   }
 
-  void setName(String name)
+  public void setName(String name)
   {
     _name = name;
-  }
+  } //<>//
   
-  void setCountries(ArrayList<Country> countries)
+  public void setCountries(ArrayList<Country> countries)
   {
     _countries = countries;
   }
   
-  void setOriginCountry() {
+  private void setOriginCountry() {
     Random rand = new Random();
     int countryCode = rand.nextInt(14);   
     for (Country country : _countries) { 
@@ -43,7 +51,7 @@ public class Player {
       }
     }
   }
-  void setBudget() {
+  private void setBudget() {
     int low = -1;
     int high = 2;
     Random random = new Random();
@@ -53,7 +61,7 @@ public class Player {
     _budget = Math.round(_budget * 100.0) / 100.0;
   }
 
-  void addDestination(Country destination) {
+  public void addDestination(Country destination) {
     _destinations.add(destination);
   }
 

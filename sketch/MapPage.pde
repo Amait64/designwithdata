@@ -1,6 +1,7 @@
 class MapPage extends BasePage {
   PShape baseMap;
   PImage backgroundImage;
+  
   MapPage(PApplet thePApplet) {
     super(thePApplet);          
     backgroundImage = loadImage("WorldMap.jpg");
