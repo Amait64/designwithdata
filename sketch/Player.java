@@ -19,9 +19,8 @@ public class Player {
   public static Player getInstance()
   {
     if (player == null)
-      //throw new Exception("Initialize before");
-      player = new Player(null); //<>//
-    return player;
+      player = new Player(null);//check
+    return player; //<>//
   }
 
   protected Player(ArrayList<Country> countries)
@@ -35,13 +34,8 @@ public class Player {
   public void setName(String name)
   {
     _name = name;
-  } //<>//
-  
-  public void setCountries(ArrayList<Country> countries)
-  {
-    _countries = countries;
   }
-  
+   //<>//
   private void setOriginCountry() {
     Random rand = new Random();
     int countryCode = rand.nextInt(14);   
@@ -51,6 +45,7 @@ public class Player {
       }
     }
   }
+  
   private void setBudget() {
     int low = -1;
     int high = 2;
@@ -68,5 +63,5 @@ public class Player {
   void updateBudget(double budget)//TODO: check
   {
     _budget = budget;
-  }
+  } 
 }

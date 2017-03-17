@@ -82,3 +82,8 @@ class HomePage extends BasePage {
     return _isActive;
   }
 }
+
+
+//add markers per country
+//draw routes
+//include backend code

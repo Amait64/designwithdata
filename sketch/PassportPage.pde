@@ -33,7 +33,7 @@ class PassportPage extends BasePage {
       public void controlEvent(CallbackEvent theEvent) {
         _isActive = false;    
         hide();
-        _mapPage.display();        
+        _mapPage.setActive();        
       }
     }
     );
@@ -46,9 +46,8 @@ class PassportPage extends BasePage {
   }
 
   void hide() {
-     background(123);
     _label.setVisible(false);    
-    _button2.hide();
+    _button2.setVisible(false);
   }
 
   void setActive() {
